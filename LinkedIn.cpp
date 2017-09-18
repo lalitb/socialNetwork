@@ -40,7 +40,7 @@ int LinkedIn::isReachable(int conn1, int conn2){
 	std::vector<bool> isVisited(totalConnections, false);
 	std::queue<LevelConnection> queueOfNodes;
 	queueOfNodes.push({conn1, 0});
-  isVisited[conn1] = true;
+        isVisited[conn1] = true;
 	while (!queueOfNodes.empty()){
 		LevelConnection lc = queueOfNodes.front();
 		if (lc.connId == conn2) {
