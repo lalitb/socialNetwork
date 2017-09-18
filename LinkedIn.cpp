@@ -42,18 +42,17 @@ int LinkedIn::isReachable(int conn1, int conn2){
 	queueOfNodes.push({conn1, 0});
         isVisited[conn1] = true;
 	while (!queueOfNodes.empty()){
-		LevelConnection lc = queueOfNodes.front();
-		if (lc.connId == conn2) {
+            	LevelConnection lc = queueOfNodes.front();
+	    	if (lc.connId == conn2) {
 			return lc.level - 1;
 		}
 		for (auto conn: connGraph[lc.connId]){
-      if (isVisited[conn] == false) {
-        isVisited[conn] = true;
+                    if (isVisited[conn] == false) {
+                          isVisited[conn] = true;
 			  queueOfNodes.push({conn, lc.level + 1});
-        isVisited[conn] = true;
-      }
+                    }
 		}
 		queueOfNodes.pop();
 	}
-  return -1 ; // not found
+         return -1 ; // not found
 }
